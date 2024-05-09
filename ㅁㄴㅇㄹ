@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 하이포사이클로이드를 그리는 함수
+def hypocycloid(a, b, h):
+    t = np.linspace(0, 2*np.pi, 1000)
+    x = (a - b) * np.cos(t) + h * np.cos((a - b) / b * t)
+    y = (a - b) * np.sin(t) - h * np.sin((a - b) / b * t)
+    return x, y
+
+# 하이포사이클로이드 파라미터 설정
+a = 8  # 큰 원의 반지름
+b = 2  # 작은 원의 반지름
+h = 2  # 작은 원이 큰 원 안쪽을 따라 이동하는 거리
+
+# 하이포사이클로이드 그리기
+x, y = hypocycloid(a, b, h)
+plt.plot(x, y)
+plt.axis('equal')
+plt.title('Hypocycloid')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.grid(True)
+plt.show()
+
